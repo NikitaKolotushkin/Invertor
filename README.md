@@ -11,4 +11,4 @@
 ### Linux:
 + ```git clone https://github.com/NikitaKolotushkin/Inventory-Control.git```
 + ```cd Inventory-Control```
-+ ```shell sh start.sh```
++ ```sh start.sh```
