@@ -4,8 +4,7 @@
 # Installing
 ### Windows:
 
-+ ```batch 
-	git clone https://github.com/NikitaKolotushkin/Inventory-Control.git 
-```
-+ ```batch cd Inventory-Control.git```
-+ ```batch start start.bat```
++ ```git clone https://github.com/NikitaKolotushkin/Inventory-Control.git```
++ ```cd Inventory-Control.git```
++ ```start start.bat```
++ Перейти в браузере на http://127.0.0.1:5000
