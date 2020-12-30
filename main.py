@@ -7,9 +7,10 @@ from flask_sqlalchemy import SQLAlchemy
 import logging
 
 
-app = Flask("Inventory Controller")
+app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['SECRET_KEY'] = 'a6c4758dde5b04abbcad31ead65f009c0df2ce16'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:1234@localhost/'
 db = SQLAlchemy(app)
 
 @app.route("/")
