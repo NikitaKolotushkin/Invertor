@@ -2,25 +2,31 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, url_for, request, redirect, current_app, session
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+
+from config import Config
 
 import logging
 
 
 app = Flask(__name__)
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-app.config['SECRET_KEY'] = 'a6c4758dde5b04abbcad31ead65f009c0df2ce16'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:1234@localhost/'
+app.config.from_object(Config)
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 @app.route("/")
-def hello():
+@app.route("/index")
+def index():
     return render_template("index.html")
+
 
 @app.route("/cabinet")
 def cabinet():
     pass
 
+
 @app.route("/tables")
 def tables():
     pass
+
