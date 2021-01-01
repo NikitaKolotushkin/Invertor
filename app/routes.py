@@ -5,17 +5,22 @@ from flask import render_template, flash, redirect, url_for
 from app import app
 
 
-@app.route("/")
-@app.route("/index")
+@app.route('/')
+@app.route('/index')
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
 
-@app.route("/cabinet")
+@app.route('login')
+def login():
+    pass
+
+
+@app.route('/cabinet')
 def cabinet():
     pass
 
 
-@app.route("/tables")
+@app.route('/tables')
 def tables():
     pass
