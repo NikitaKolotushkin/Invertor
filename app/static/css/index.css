@@ -36,10 +36,6 @@ header {
     transform: translate(-50%, -50%);
 }
 
-.header__title {
-
-}
-
 .header__title span {
     color: #ff6a5c;
 }
