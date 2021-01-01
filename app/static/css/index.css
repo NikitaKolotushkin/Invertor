@@ -53,6 +53,7 @@ header {
     border-radius: 5px;
     margin-top: 60px;
     background: #ff6a5c;
+    cursor: pointer;
 }
 
 .registration_btn a {
