@@ -3,10 +3,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;    
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
     color: #fff;
 }
 
@@ -50,6 +50,7 @@ header {
     margin-top: 60px;
     background: #ff6a5c;
     cursor: pointer;
+    outline: none;
 }
 
 .registration_btn a {
@@ -60,6 +61,7 @@ header {
 
 .register {
     background: #444343;
+    position: relative;
 }
 
 .register__titles {
@@ -81,4 +83,63 @@ header {
 .register__subtitle a {
     color: #ff6a5c;
     text-decoration: none;
+}
+
+.register__inner {
+    width: 100%;
+    max-width: 1050px;
+    height: 520px;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+.register__form {
+    width: 100%;
+    height: 435px;
+}
+
+.register__input {
+    width: 100%;
+    max-width: 1050px;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    border: 1px solid #ff6a5c;
+    background: transparent;
+    color: #ffffff;
+    padding-left: 15px;
+    outline: none;
+}
+
+.register__input::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+.register__header {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.register__header-title {
+    font-size: 36px;
+}
+
+.register__btn {
+    width: 670px;
+    background: #ff6a5c;
+    color: #fff;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    outline: none;
+}
+
+.register__btn:hover {
+    cursor: pointer;
 }
