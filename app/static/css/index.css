@@ -23,6 +23,7 @@ header {
     background: #444343 url(../img/index/index__registration_header_dark.png);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .header__block {
