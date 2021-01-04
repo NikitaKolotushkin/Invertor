@@ -45,7 +45,6 @@ def tables():
 
 
 # ERRORS
-
 @app.errorhandler(404)
 def pageNotFound(error):
     return render_template('page404.html'), 404
