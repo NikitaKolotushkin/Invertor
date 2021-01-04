@@ -30,12 +30,12 @@
                 <div class="register__header">
                     <h3 class="register__header-title">Регистрация</h3>
                 </div>
-                <form action="" method="get" class=register__form>
-                    <input class="register__input" type="text" placeholder="Введите ваш логин:">
-                    <input class="register__input" type="e" placeholder="Введите адрес электронной почты:">
-                    <input class="register__input" type="" placeholder="Введите ваш номер телефона:">
-                    <input class="register__input" type="password" placeholder="Введите пароль">
-                    <input class="register__input" type="password" placeholder="Повторите пароль">
+                <form action="/cabinet" method="post" class=register__form>
+                    <input class="register__input" type="text" name="login" placeholder="Введите ваш логин:">
+                    <input class="register__input" type="email" name="email" placeholder="Введите адрес электронной почты:">
+                    <input class="register__input" type="" name="phone" placeholder="Введите ваш номер телефона:">
+                    <input class="register__input" type="password" name="password" placeholder="Введите пароль">
+                    <input class="register__input" type="password" name="password_confirm" placeholder="Повторите пароль">
                     <input type="submit" value="Регистрация!" class="register__btn">
                 </form>
             </div>
