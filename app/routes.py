@@ -44,6 +44,7 @@ def login():
 def main():
     return render_template('main.html')
 
+
 @app.route('/cabinet/<login>', methods=['GET', 'POST'])
 def cabinet(login):
     if 'userLogged' not in session or session['userLogged'] != login:
@@ -58,6 +59,11 @@ def tables():
 
 
 # ERRORS
+@app.errorhandler(401)
+def Unauthorized(error):
+    return render_template('unauthorized.html'), 401
+
+
 @app.errorhandler(404)
 def pageNotFound(error):
     return render_template('page404.html'), 404
