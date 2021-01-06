@@ -3,18 +3,7 @@
 
 import sqlite3
 from app import app, db
-
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique=True, nullable=False)
-    email = db.Column(db.String(120), index=True, unique=True, nullable=False)
-    full_name = db.Column(db.String(255), nullable=False)
-    phone = db.Column(db.String(32), nullable=True)
-    password_hash = db.Column(db.String(256), nullable=True)
-
-    def __repr__(self):
-        return f'Пользователь {self.full_name}'
+from flask import g
 
 
 def connect_db():
@@ -37,3 +26,20 @@ def create_db():
 
     db.commit()
     db.close()
+
+
+def get_db():
+    '''
+    Установление соединения с Базой Данных, в случае, если оно ещё не установлено
+    '''
+    if not hasattr(g, 'link_db'):
+        g.link_db = connect_db()
+    return g.link_db
+
+
+def close_db():
+    '''
+    Разрыв соединения с базой данных, в случае, если оно установлено
+    '''
+    if hasattr(g, 'link_db'):
+        g.link_db.close()
