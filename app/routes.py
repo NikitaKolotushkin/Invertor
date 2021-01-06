@@ -3,6 +3,7 @@
 
 from flask import abort, render_template, flash, redirect, url_for, request, session
 from app import app
+from app.models import *
 
 import os
 
