@@ -7,7 +7,7 @@
 + ```git clone https://github.com/NikitaKolotushkin/Inventory-Control.git```
 + ```cd Inventory-Control```
 + ```pip install -r requirements.txt```
-+ ```start start.bat```
++ ```python main.py```
 + Перейти в браузере на 127.0.0.1:5000
 
 
@@ -16,5 +16,5 @@
 + ```git clone https://github.com/NikitaKolotushkin/Inventory-Control.git```
 + ```cd Inventory-Control```
 + ```pip install -r requirements.txt```
-+ ```sh start.sh```
++ ```python3 main.py```
 + Перейти в браузере на 127.0.0.1:5000
