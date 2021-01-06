@@ -22,26 +22,31 @@
         </div>
     </header>
     <section class="register" id="register">
+
         <div class="container">
             <div class="register__titles">
                 <h2 class="register__title">Простая и быстрая регистрация!</h2>
                 <h3 class="register__subtitle">Уже зарегистрированы? <a href="/login">Войдите</a> прямо сейчас!</h3>
-            <div class="register__inner">
-                <div class="register__header">
-                    <h3 class="register__header-title">Регистрация</h3>
+                <div class="register__inner">
+                    <div class="register__header">
+                        <h3 class="register__header-title">Регистрация</h3>
+                    </div>
+                    <form action="/index" method="post" class=register__form>
+                        <input class="register__input" type="text" name="login" placeholder="Введите ваш логин:">
+                        <input class="register__input" type="email" name="email" placeholder="Введите адрес электронной почты:">
+                        <input class="register__input" type="" name="phone" placeholder="Введите ваш номер телефона:">
+                        <input class="register__input" type="password" name="password" placeholder="Введите пароль">
+                        <input class="register__input" type="password" name="password_confirm" placeholder="Повторите пароль">
+                        <input type="submit" value="Регистрация!" class="register__btn">
+                    </form>
                 </div>
-                <form action="/cabinet" method="post" class=register__form>
-                    <input class="register__input" type="text" name="login" placeholder="Введите ваш логин:">
-                    <input class="register__input" type="email" name="email" placeholder="Введите адрес электронной почты:">
-                    <input class="register__input" type="" name="phone" placeholder="Введите ваш номер телефона:">
-                    <input class="register__input" type="password" name="password" placeholder="Введите пароль">
-                    <input class="register__input" type="password" name="password_confirm" placeholder="Повторите пароль">
-                    <input type="submit" value="Регистрация!" class="register__btn">
-                </form>
-            </div>
             </div>
         </div>
     </section>
+    
+    {% for category, msg in get_flashed_messages(True) %}
+        <div class="flash {{category}}">{{msg}}</div>
+    {% endfor %}
 
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
