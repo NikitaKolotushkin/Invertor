@@ -1,42 +1,41 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+
 from flask import abort, render_template, flash, redirect, url_for, request, session
+import os
+from werkzeug.security import generate_password_hash, check_password_hash
+
 from app import app
 from app.models import *
-
-import os
+from app.FDataBase import FDataBase
 
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
-        if len(request.form['password']) > 3 and request.form['password'] == request.form['password_confirm']:
-            flash('Успех!', category='success')
-        elif len(request.form['password']) < 4:
-            flash('Пароль слишком короткий!', category='error')
-        elif request.form['password'] != request.form['password_confirm']:
-            flash('Пароли не совпадают!', category='error')
-        else:
-            flash('Ошибка отправки!', category='error')
 
-    if 'userLogged' in session:
-        return redirect(url_for('cabinet', login=session['userLogged']))
-    elif request.method == 'POST' and request.form['login'] == 'Rensys' and request.form['password'] == '1234':
-        session['userLogged'] = request.form['login']
-        return redirect(url_for('cabinet', login=session['userLogged']))
+    dbase = FDataBase(get_db())
+
+    if request.method == 'POST':
+        if len(request.form['login']) > 3 and len(request.form['password']) > 4 \
+            and len(request.form['email']) > 4 \
+            and request.form['password'] == request.form['password_confirm']:
+            password_hash = generate_password_hash(request.form['password'])
+            result = dbase.addUser(request.form['login'], request.form['email'], request.form['phone'], password_hash)
+            if result:
+                flash('Вы успешно зарегистрировались!', 'success')
+                return redirect(url_for('login'))
+            else:
+                flash('Ошибка при выполнении запроса к базе данных!', 'error')    
+        else:
+            flash('Ошибка заполнения!', 'error')
 
     return render_template('index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if 'userLogged' in session:
-        return redirect(url_for('cabinet', login=session['userLogged']))
-    elif request.method == 'POST' and request.form['login'] == 'Rensys' and request.form['password'] == '1234':
-        session['userLogged'] = request.form['login']
-        return redirect(url_for('cabinet', login=session['userLogged']))
 
     return render_template('login.html')
 
