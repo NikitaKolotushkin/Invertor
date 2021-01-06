@@ -3,10 +3,11 @@
 
 
 from flask import abort, render_template, flash, redirect, url_for, request, session
+from flask_login import LoginManager
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from app import app
+from app import app, login_manager
 from app.models import *
 from app.FDataBase import FDataBase
 
