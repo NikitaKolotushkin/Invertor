@@ -45,7 +45,7 @@
     </section>
     
     {% for category, msg in get_flashed_messages(True) %}
-        <div class="flash {{category}}">{{msg}}</div>
+        <div id="flash" class="flash {{category}}">{{msg}}</div>
     {% endfor %}
 
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
