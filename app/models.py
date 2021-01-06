@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sqlite3
-from app import app, db
 from flask import g
+import sqlite3
+
+from app import app, db
+from app.FDataBase import FDataBase
 
 
 def connect_db():
@@ -37,6 +39,18 @@ def get_db():
     return g.link_db
 
 
+dbase = None
+@app.before_request
+def before_request():
+    '''
+    Установление соединения с Базой данных ПЕРЕД выполнением запроса
+    '''
+    global dbase
+    db = get_db()
+    dbase = FDataBase(db)
+
+
+# @app.teardown_appcontext
 def close_db():
     '''
     Разрыв соединения с базой данных, в случае, если оно установлено
