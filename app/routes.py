@@ -12,6 +12,7 @@ from app.models import *
 from app.FDataBase import FDataBase
 
 
+@login_manager.user_loader
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
