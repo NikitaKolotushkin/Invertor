@@ -3,7 +3,7 @@
 
 
 from flask import abort, render_template, flash, redirect, url_for, request, session
-from flask_login import LoginManager
+from flask_login import LoginManager, login_user
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -12,7 +12,6 @@ from app.models import *
 from app.FDataBase import FDataBase
 
 
-@login_manager.user_loader
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def index():
@@ -38,6 +37,15 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
+    if request.method == 'POST':
+        user = dbase.getUserByEmail(request.form['email'])
+        if user and check_password_hash(user['password'], request.form['password']):
+            UserLogin = UserLogin().create(user)
+            login_user(UserLogin)
+            return redirect(url_for('main'))
+
+        flash('Введены неверные данные!')
 
     return render_template('login.html')
 
