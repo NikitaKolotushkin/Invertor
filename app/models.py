@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from flask import g
+from flask_login import LoginManager
 import sqlite3
 
 from app import app, db
 from app.FDataBase import FDataBase
+from app.UserLogin import UserLogin
 
 
 def connect_db():
@@ -57,3 +59,11 @@ def close_db():
     '''
     if hasattr(g, 'link_db'):
         g.link_db.close()
+        
+
+login_manager = LoginManager(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    print('load_user')
+    return UserLogin().fromDB(user_id, dbase)
