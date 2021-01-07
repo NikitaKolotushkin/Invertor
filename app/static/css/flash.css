@@ -1,0 +1,18 @@
+.flash {
+    font-size: 16px;
+    line-height: 2;
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    position: fixed;
+    top: 0;
+    text-align: center;
+}
+
+.flash.success {
+    background: rgb(16, 187, 0);
+}
+
+.flash.error {
+    background: tomato;
+}
