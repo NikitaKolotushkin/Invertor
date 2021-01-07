@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flash.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Invertor - Вход</title>
 </head>
@@ -12,15 +13,21 @@
         <div class="container">
             <div class="wrapper">
                 <div class="wrapper__inner">
-                    <h2 class="login__title">
-                        ВХОД
-                    </h2>
-                    <form action="" method="post" class="login__form">
-                    <input class="login__input" type="text" name="email" placeholder="Введите ваш адрес электронной почты:">
-                    <input class="login__input" type="password" name="password" placeholder="Введите пароль">
-                    <input type="checkbox" name="remainme"> Запомнить меня!
-                    <input type="submit" value="Вход!" class="register__btn">
-                </form> 
+                    <div class="inner__inner">
+                        <h2 class="login__title">
+                            ВХОД
+                        </h2>
+                        <form action="" method="post" class="login__form">
+                        <p><input class="login__input" type="text" name="email" placeholder="Введите ваш адрес электронной почты:">
+                        <p><input class="login__input" type="password" name="password" placeholder="Введите пароль:">
+                        <p><div class="login__buttons">
+                                <div class="login__checkbox">
+                                    <input type="checkbox" name="remainme" value=""> Запомнить меня!
+                                </div>
+                                <input type="submit" value="Вход!" class="login__btn">
+                            </div>
+                        </form> 
+                    </div>    
                 </div>
             </div>
         </div>
