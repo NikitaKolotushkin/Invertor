@@ -3,13 +3,14 @@
 
 
 from flask import abort, render_template, flash, redirect, url_for, request, session
-from flask_login import LoginManager, login_user
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app import app, login_manager
 from app.models import *
 from app.FDataBase import FDataBase
+from app.UserLogin import UserLogin
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -38,29 +39,43 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 
+    if current_user.is_authenticated:
+        return redirect(url_for('cabinet'))
+
+    dbase = FDataBase(get_db())
+
     if request.method == 'POST':
         user = dbase.getUserByEmail(request.form['email'])
-        if user and check_password_hash(user['password'], request.form['password']):
-            UserLogin = UserLogin().create(user)
-            login_user(UserLogin)
-            return redirect(url_for('main'))
+        if user and check_password_hash(user['password_hash'], request.form['password']):
+            UserLogged = UserLogin().create(user)
+            remainme = True if request.form.get('remainme') else False
+            login_user(UserLogged, remember=remainme)
+            return redirect(request.args.get("next") or url_for('cabinet'))
 
-        flash('Введены неверные данные!')
+        flash('Введены неверные данные!', 'error')
 
     return render_template('login.html')
 
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Вы вышли из аккаунта', 'success')
+    return redirect(url_for('login'))
+
+
 @app.route('/main', methods=['GET', 'POST'])
+@login_required
 def main():
     return render_template('main.html')
 
 
-@app.route('/cabinet/<login>', methods=['GET', 'POST'])
-def cabinet(login):
-    if 'userLogged' not in session or session['userLogged'] != login:
-        abort(401)
-    else:
-        return render_template('cabinet.html')
+@app.route('/cabinet')
+@login_required
+def cabinet():
+    return f"""<p><a href="{url_for('logout')}">Выйти из профиля</a></p>
+            <p>Кабинет пользователя: {current_user.get_id()}</p>"""
 
 
 @app.route('/tables', methods=['GET', 'POST'])
@@ -71,7 +86,7 @@ def tables():
 # ERRORS
 @app.errorhandler(401)
 def Unauthorized(error):
-    return render_template('unauthorized.html'), 401
+    return redirect(url_for('login')), 401
 
 
 @app.errorhandler(404)

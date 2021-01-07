@@ -62,6 +62,9 @@ def close_db():
         
 
 login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message = 'Пожалуйста, авторизуйтесь'
+login_manager.login_message_category = 'success'
 
 @login_manager.user_loader
 def load_user(user_id):
