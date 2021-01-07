@@ -12,9 +12,3 @@ var footer = document.querySelector('#register');
 button.addEventListener('click', () => {
     scrollTo(footer);
 })
-
-
-// Плавное удаление flash уведомления
-setTimeout(function(){
-    document.getElementById('flash').style.opacity = 0;
-}, 2000);
