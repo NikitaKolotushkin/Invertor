@@ -47,6 +47,7 @@ class FDataBase:
 
         return False
 
+
     def getUserByEmail(self, email):
         try:
             self.__cur.execute(f"SELECT * FROM Users WHERE email = '{email}' LIMIT 1")
@@ -78,3 +79,21 @@ class FDataBase:
         except sqlite3.Error as e:
             print('Ошибка добавления предмета в базу данных:' + str(e))
             return False
+
+        return True
+
+
+    def getItem(self, item_id):
+        try:
+            self.__cur.execute(f"SELECT * FROM Items WHERE id = {item_id} LIMIT 1")
+            result = self.__cur.fetchone()
+            if not result:
+                print('Предмет не найден')
+                return False
+
+            return result
+
+        except sqlite3.Error as e:
+            print('Ошибка получения данных из Базы Данных' + str(e))
+
+        return False
