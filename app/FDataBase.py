@@ -61,3 +61,20 @@ class FDataBase:
             print(f'Ошибка получения данных из Базы Данных' + str(e))
 
         return False
+
+
+    def addItem(self, cabinet, inv_no):
+        try:
+            self.__cur.execute(f"SELECT COUNT() as `count` FROM Items WHERE email like '{inv_no}'")
+            result = self.__cur.fetchone()
+            if result['count'] > 0:
+                print('Предмет с таким инвентарным номером уже существует!')
+                return False
+
+            tm = math.floor(time.time())
+            self.__cur.execute("INSERT INTO Items VALUES(NULL, ?, ?, ?)", (cabinet, inv_no, tm))
+            self.__db.commit()
+
+        except sqlite3.Error as e:
+            print('Ошибка добавления предмета в базу данных:' + str(e))
+            return False
