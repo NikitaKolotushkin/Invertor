@@ -73,7 +73,7 @@ class FDataBase:
                 return False
 
             tm = math.floor(time.time())
-            self.__cur.execute("INSERT INTO Items VALUES(NULL, ?, ?, ?)", (cabinet, inv_no, tm))
+            self.__cur.execute("INSERT INTO Items VALUES(NULL, ?, ?, ?, ?)", (cabinet, inv_no, name, tm))
             self.__db.commit()
 
         except sqlite3.Error as e:
