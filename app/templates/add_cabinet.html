@@ -19,5 +19,12 @@
             </form>
         </div>
     </div>
+
+    {% for category, msg in get_flashed_messages(True) %}
+        <div id="flash" class="flash {{category}}">{{msg}}</div>
+    {% endfor %}
+
+<script src="{{ url_for('static', filename='js/flash.js') }}"></script>
+
 </body>
 </html>

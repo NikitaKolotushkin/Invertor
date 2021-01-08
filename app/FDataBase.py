@@ -64,9 +64,9 @@ class FDataBase:
         return False
 
 
-    def addItem(self, cabinet, inv_no):
+    def addItem(self, cabinet, inv_no, name):
         try:
-            self.__cur.execute(f"SELECT COUNT() as `count` FROM Items WHERE email like '{inv_no}'")
+            self.__cur.execute(f"SELECT COUNT() as `count` FROM Items WHERE inv_no like '{inv_no}'")
             result = self.__cur.fetchone()
             if result['count'] > 0:
                 print('Предмет с таким инвентарным номером уже существует!')

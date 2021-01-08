@@ -87,6 +87,16 @@ def all_items():
 @app.route('/add_cabinet', methods=['GET', 'POST'])
 @login_required
 def add_cabinet():
+
+    dbase = FDataBase(get_db())
+
+    if request.method == 'POST':
+            result = dbase.addItem(request.form['cabinet'], request.form['inv_no'], request.form['name'])
+            if result:
+                flash('Предмет успешно добавлен!', 'success')
+            else:
+                flash('Ошибка при выполнении запроса к базе данных!', 'error')
+
     return render_template('add_cabinet.html')
 
 
