@@ -3,6 +3,12 @@ body {
     color: #fff;
 }
 
+.container {
+    width: 84%;
+    margin: 0 auto;
+    height: 100vh;
+}
+
 /* MAIN STYLES */
 header {
     height: 100vh;
