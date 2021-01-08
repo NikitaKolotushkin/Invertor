@@ -78,6 +78,7 @@ def cabinet():
 
 
 @app.route('/tables', methods=['GET', 'POST'])
+@login_required
 def tables():
     pass
 
