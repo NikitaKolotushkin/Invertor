@@ -2,6 +2,9 @@
 Школьный проект
 
 # Установка
+
+**Рекомендуется использовать virtualenv, хотя это необязательно**
+
 ### Windows:
 
 + ```git clone https://github.com/NikitaKolotushkin/Inventory-Control.git```
