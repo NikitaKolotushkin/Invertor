@@ -84,9 +84,9 @@ def all_items():
     return render_template('all_items.html', items=dbase.getAllItems())
 
 
-@app.route('/add_cabinet', methods=['GET', 'POST'])
+@app.route('/add_item', methods=['GET', 'POST'])
 @login_required
-def add_cabinet():
+def add_item():
 
     dbase = FDataBase(get_db())
 
@@ -97,7 +97,7 @@ def add_cabinet():
             else:
                 flash('Ошибка при выполнении запроса к базе данных!', 'error')
 
-    return render_template('add_cabinet.html')
+    return render_template('add_item.html')
 
 
 # ERRORS
