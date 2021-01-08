@@ -1,5 +1,7 @@
 # Invertor
 
+![STATUS](https://img.shields.io/badge/STATUS-IN%20DEVELOPMENT-brightgreen?style=for-the-badge)
+
 ![LICENSE](https://img.shields.io/badge/LICENSE-GNU%20AGPLv3-red?style=for-the-badge)
 
 **Invertor** - специализированное **бесплатное** веб-приложение, нацеленное на различные учебные заведения, с помощью которого можно осуществлять инвентарный учёт.
