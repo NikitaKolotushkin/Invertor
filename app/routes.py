@@ -77,10 +77,11 @@ def cabinet():
     return render_template('cabinet.html')
 
 
-@app.route('/add_cabinet', methods=['GET', 'POST'])
+@app.route('/all_items', methods=['GET', 'POST'])
 @login_required
-def add_cabinet():
-    pass
+def all_items():
+    dbase = FDataBase(get_db())
+    return render_template('all_items.html', items=dbase.getAllItems())
 
 
 # ERRORS
