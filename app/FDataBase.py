@@ -97,3 +97,16 @@ class FDataBase:
             print('Ошибка получения данных из Базы Данных' + str(e))
 
         return False
+
+
+    def getAllItems(self):
+        try:
+            self.__cur.execute(f"SELECT * FROM Items")
+            result = self.__cur.fetchall()
+            if result:
+                return result
+
+        except sqlite3.Error as e:
+            print('Ошибка чтения данных из Базы Данных' +  str(e))
+
+        return []
