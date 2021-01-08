@@ -4,6 +4,8 @@
 
 ![LICENSE](https://img.shields.io/badge/LICENSE-GNU%20AGPLv3-red?style=for-the-badge)
 
+![Screenshot__1](git_images/Screenshot__1.jpg)
+
 **Invertor** - специализированное **бесплатное** веб-приложение, нацеленное на различные учебные заведения, с помощью которого можно осуществлять инвентарный учёт.
 
 
