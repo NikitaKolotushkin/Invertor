@@ -74,8 +74,7 @@ def main():
 @app.route('/cabinet')
 @login_required
 def cabinet():
-    return f"""<p><a href="{url_for('logout')}">Выйти из профиля</a></p>
-            <p>Кабинет пользователя: {current_user.get_id()}</p>"""
+    return render_template('cabinet.html')
 
 
 @app.route('/tables', methods=['GET', 'POST'])
