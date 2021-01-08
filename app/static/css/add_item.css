@@ -4,8 +4,17 @@ body {
 }
 
 h1 {
-    margin-bottom: 150px;
     font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    margin-bottom: 135px;
+}
+
+.subtitle a {
+    text-decoration: none;
+    color: #ff6a5c;
 }
 
 .container {
