@@ -84,6 +84,12 @@ def all_items():
     return render_template('all_items.html', items=dbase.getAllItems())
 
 
+@app.route('/add_cabinet', methods=['GET', 'POST'])
+@login_required
+def add_cabinet():
+    return render_template('add_cabinet.html')
+
+
 # ERRORS
 @app.errorhandler(401)
 def Unauthorized(error):
