@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all_items.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
     <title>Список всех элементов</title>
 </head>
 <body>
-    {% for item in items %}
-    <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.cabinet }}</td>
-        <td>{{ item.inv_no }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.time }}</td>
-    </tr>
-    {% endfor %}
+    <div class="container">
+        <table>
+        <tr>
+            <th class="tr__id">Id</th>
+            <th>№ Кабинета</th>
+            <th>Инвентарный номер</th>
+            <th>Наименование</th>
+        </tr>
 
+        {% for item in items %}
+            
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.cabinet }}</td>
+                <td>{{ item.inv_no }}</td>
+                <td>{{ item.name }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </table>
+    </div>
 </body>
 </html>
