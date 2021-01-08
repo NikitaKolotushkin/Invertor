@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_cabinet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_item.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
-    <title>Добавить кабинет</title>
+    <title>Добавить предмет</title>
 </head>
 <body>
     <div class="container">
         <div class="wrapper">
-            <h1>Добавить кабинет</h1>
-            <form action="/add_cabinet" method="post">
+            <h1>Добавить предмет</h1>
+            <form action="/add_item" method="post">
                 <p><input class="wrapper__input" type="text" name="cabinet" placeholder="Введите номер кабинета:"></p>
                 <p><input class="wrapper__input" type="text" name="inv_no" placeholder="Введите инвентарный номер"></p>
                 <p><input class="wrapper__input" type="text" name="name" placeholder="Введите наименование предмета"></p>
