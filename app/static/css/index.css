@@ -1,20 +1,6 @@
 /* GENERAL SETTINGS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;    
-}
-
 body {
     color: #fff;
-}
-
-.container {
-    width: 100%;
-    max-width: 84%;
-    margin: 0 auto;
-    height: 100vh;
 }
 
 /* MAIN STYLES */
@@ -67,7 +53,7 @@ header {
 
 .register__titles {
     width: 100%;
-    max-width: 60%;
+    max-width: 80%;
     margin: 0 auto;
     text-align: center;
 }
