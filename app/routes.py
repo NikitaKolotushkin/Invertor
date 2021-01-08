@@ -77,9 +77,9 @@ def cabinet():
     return render_template('cabinet.html')
 
 
-@app.route('/tables', methods=['GET', 'POST'])
+@app.route('/add_cabinet', methods=['GET', 'POST'])
 @login_required
-def tables():
+def add_cabinet():
     pass
 
 
