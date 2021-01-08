@@ -11,12 +11,12 @@
 <body>
     <header>
         <div class="container">
-            <h1>Добро пожаловать в личный кабинет!</h1>
-            <h3>Список доступных для Вас действий:</h3>
-            <ul>
-                <li><a href="">Посмотреть список кабинетов</a></li>
-                <li><a href="">Добавить новый кабинет</a></li>
-                <li><a href="{{ url_for('logout') }}">Выйти</a></li>
+            <h1 class="hello__title">Добро пожаловать в личный кабинет!</h1>
+            <h3 class="hello__subtitle">Список доступных для Вас действий:</h3>
+            <ul class="main__list">
+                <li class="list__item"><a href="">Посмотреть список кабинетов</a></li>
+                <li class="list__item"><a href="">Добавить новый кабинет</a></li>
+                <li class="list__item"><a href="{{ url_for('logout') }}">Выйти</a></li>
             </ul>
         </div>
     </header>

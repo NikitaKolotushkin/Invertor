@@ -3,7 +3,26 @@ body {
     color: #fff;
 }
 
+
+a {
+    text-decoration: none;
+    color:#fff;
+}
+
+a:hover {
+    color: #ff6a5c;
+}
+
 .container {
     width: 84%;
     margin: 0 auto;
+}
+
+.hello__subtitle {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.list__item {
+    margin-top: 15px;
 }
