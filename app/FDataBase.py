@@ -64,7 +64,7 @@ class FDataBase:
         return False
 
 
-    def addItem(self, cabinet, inv_no, name):
+    def addItem(self, cabinet, floor_, status_, type_, model, inv_no, worker, phone, email, comment, picture):
         try:
             self.__cur.execute(f"SELECT COUNT() as `count` FROM Items WHERE inv_no like '{inv_no}'")
             result = self.__cur.fetchone()
@@ -73,7 +73,7 @@ class FDataBase:
                 return False
 
             tm = math.floor(time.time())
-            self.__cur.execute("INSERT INTO Items VALUES(NULL, ?, ?, ?, ?)", (cabinet, inv_no, name, tm))
+            self.__cur.execute("INSERT INTO Items VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (cabinet, floor_, status_, type_, model, inv_no, worker, phone, email, comment, picture, tm))
             self.__db.commit()
 
         except sqlite3.Error as e:

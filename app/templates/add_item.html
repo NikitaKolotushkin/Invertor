@@ -13,9 +13,19 @@
             <h1>Добавить предмет</h1>
             <h3 class="subtitle"><a href="/all_items" >Посмотреть полный инвентарный список</a></h3>
             <form action="/add_item" method="post">
-                <p><input class="wrapper__input" type="text" name="cabinet" placeholder="Введите номер кабинета:"></p>
-                <p><input class="wrapper__input" type="text" name="inv_no" placeholder="Введите инвентарный номер"></p>
-                <p><input class="wrapper__input" type="text" name="name" placeholder="Введите наименование предмета"></p>
+
+                <p><input class="wrapper__input" type="text" name="cabinet" placeholder="Номер кабинета"></p>
+                <p><input class="wrapper__input" type="text" name="floor_" placeholder="Этаж"></p>
+                <p><input class="wrapper__input" type="text" name="status_" placeholder="Статус"></p>
+                <p><input class="wrapper__input" type="text" name="type_" placeholder="Тип предмета"></p>
+                <p><input class="wrapper__input" type="text" name="model" placeholder="Модель предмета"></p>
+                <p><input class="wrapper__input" type="text" name="inv_no" placeholder="Инвентарный номер"></p>
+                <p><input class="wrapper__input" type="text" name="worker" placeholder="Имя работника"></p>
+                <p><input class="wrapper__input" type="tel" name="phone" placeholder="Телефон работника"></p>
+                <p><input class="wrapper__input" type="email" name="email" placeholder="Email работника"></p>
+                <p><input class="wrapper__input" type="text" name="comment" placeholder="Комментарий"></p>
+                <p><input class="wrapper__input" type="image" name="picture" placeholder="Изображение"></p>
+
                 <p><input class="btn" type="submit" value="Добавить!"></p>
             </form>
         </div>

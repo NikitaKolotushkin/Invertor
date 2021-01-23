@@ -89,19 +89,20 @@ def all_items():
 def add_item():
 
     dbase = FDataBase(get_db())
-
-    if len(request.form['cabinet'].strip()) != 0 and len(request.form['inv_no'].strip()) != 0 \
-        and len(request.form['name'].strip()) != 0:
-
-        if request.method == 'POST':
-                result = dbase.addItem(request.form['cabinet'], request.form['inv_no'], request.form['name'])
+    if request.method == 'POST':
+        if len(request.form['cabinet'].strip()) != 0 and len(request.form['inv_no'].strip()) != 0 \
+        and len(request.form['worker'].strip()) != 0:    
+                result = dbase.addItem(request.form['cabinet'], request.form['floor_'], request.form['status_'], 
+                                    request.form['type_'], request.form['model'], request.form['inv_no'], 
+                                    request.form['worker'], request.form['phone'], request.form['email'], 
+                                    request.form['comment'], request.form['picture'])
                 if result:
                     flash('Предмет успешно добавлен!', 'success')
                 else:
                     flash('Ошибка при выполнении запроса к базе данных!', 'error')
 
-    else:
-        flash('Ошибка при заполнении формы!', 'error')
+        else:
+            flash('Ошибка при заполнении формы!', 'error')
 
     return render_template('add_item.html')
 
